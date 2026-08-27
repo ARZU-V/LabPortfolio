@@ -3689,3 +3689,385 @@ button {
   }
 
 }
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  :root {
+    --frame-margin: 0px;
+    --header-height: 56px;
+    --nav-collapsed-width: 0px;
+  }
+
+
+  /* =======================================================
+     BODY
+  ======================================================= */
+
+  body {
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     FRAME
+  ======================================================= */
+
+  .frame {
+    width: 100%;
+    height: 100svh;
+
+    margin: 0;
+
+    border-width: 2px;
+
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     HEADER
+  ======================================================= */
+
+  .header {
+    height: var(--header-height);
+    min-height: var(--header-height);
+
+    grid-template-columns: 1fr auto;
+
+    padding: 0 14px;
+  }
+
+  .header-role {
+    display: none;
+  }
+
+  .header-status {
+    font-size: 9px;
+  }
+
+
+  /* =======================================================
+     MAIN SCROLL AREA
+  ======================================================= */
+
+  .viewport {
+    position: absolute;
+
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 68px;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+
+  /* =======================================================
+     HERO
+  ======================================================= */
+
+  .hero {
+    width: 100%;
+
+    min-height: auto;
+
+    display: block;
+  }
+
+  .hero-content {
+    width: 100%;
+
+    padding: 32px 20px 48px;
+  }
+
+  .hero-grid {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 36px;
+
+    align-items: stretch;
+  }
+
+  .hero h1 {
+    width: 100%;
+
+    max-width: none;
+
+    font-size: clamp(40px, 12vw, 58px);
+
+    line-height: 0.96;
+  }
+
+  .hero-description {
+    width: 100%;
+
+    max-width: none;
+
+    margin-top: 24px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  .hero-meta {
+    display: none;
+  }
+
+  .hero-image {
+    position: relative !important;
+
+    inset: auto !important;
+
+    width: 100%;
+    max-width: 360px;
+
+    margin: 0 auto;
+  }
+
+  .hero-image img {
+    position: relative !important;
+
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+  }
+
+
+  /* =======================================================
+     ALL OTHER SECTIONS
+  ======================================================= */
+
+  .page-section {
+    width: 100%;
+
+    padding: 36px 20px 48px;
+  }
+
+
+  /* =======================================================
+     MOBILE BOTTOM NAV
+  ======================================================= */
+
+  .side-nav {
+    position: fixed;
+
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100% !important;
+    height: 68px;
+
+    min-width: 0;
+
+    z-index: 9999;
+
+    display: block;
+
+    border: 0;
+    border-top: 1px solid var(--border);
+
+    background: rgba(8, 9, 10, 0.97);
+
+    backdrop-filter: blur(18px);
+
+    overflow: visible;
+
+    transform: none !important;
+
+    transition: none !important;
+  }
+
+
+  /*
+   * CRITICAL:
+   * Mobile must NEVER use the desktop hover drawer.
+   */
+
+  .side-nav:hover {
+    width: 100% !important;
+
+    transform: none !important;
+  }
+
+
+  /* =======================================================
+     HIDE DESKTOP SIDEBAR HEADER
+  ======================================================= */
+
+  .side-nav-header {
+    display: none !important;
+  }
+
+
+  /* =======================================================
+     HORIZONTAL NAV
+  ======================================================= */
+
+  .side-nav-links {
+    width: 100%;
+    height: 68px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0 6px;
+
+    gap: 0;
+  }
+
+
+  /* =======================================================
+     NAV BUTTON
+  ======================================================= */
+
+  .side-nav-link {
+    width: 48px;
+    height: 52px;
+
+    flex: 0 0 48px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+  }
+
+
+  .side-nav-icon {
+    width: 24px;
+    height: 24px;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  /* =======================================================
+     HIDE LABELS
+  ======================================================= */
+
+  .side-nav-label,
+  .side-nav:hover .side-nav-label {
+    display: none !important;
+
+    opacity: 0 !important;
+
+    transform: none !important;
+  }
+
+
+  /* =======================================================
+     ACTIVE ICON
+  ======================================================= */
+
+  .side-nav-link.active {
+    color: var(--primary);
+  }
+
+  .side-nav-link.active .side-nav-icon {
+    color: var(--primary);
+
+    filter:
+      drop-shadow(0 0 5px rgba(181, 140, 255, 0.6));
+  }
+
+
+  /* Active line becomes bottom indicator */
+
+  .side-nav-link.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 2px;
+
+    width: 16px;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: var(--primary);
+
+    box-shadow:
+      0 0 8px rgba(181, 140, 255, 0.7);
+  }
+
+
+  /* =======================================================
+     REMOVE DESKTOP NODE AREA
+  ======================================================= */
+
+  .side-nav-bottom {
+    display: none !important;
+  }
+
+
+  /* =======================================================
+     DISABLE DESKTOP HOVER EFFECTS
+  ======================================================= */
+
+  .side-nav:hover .side-nav-title {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+
+  .side-nav:hover .node-info {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   EXTRA PROTECTION AGAINST STICKY HOVER
+========================================================= */
+
+@media (max-width: 768px) and (hover: none) {
+
+  .side-nav:hover {
+    width: 100% !important;
+  }
+
+  .side-nav:hover .side-nav-title,
+  .side-nav:hover .side-nav-label,
+  .side-nav:hover .node-info {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+
+}
