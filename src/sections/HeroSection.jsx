@@ -1,9 +1,18 @@
-import SectionLabel from "../components/SectionLabel";
-import Pic from "../assets/my_pic.jpg"
+import Pic from "../assets/my_pic.jpg";
+
 function Hero() {
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <section className="hero" id="profile">
       <div className="hero-content">
+
+        {/* Section label */}
 
         <div className="section-label">
           <span>01</span>
@@ -11,9 +20,12 @@ function Hero() {
           <span>PROFILE</span>
         </div>
 
+
         <div className="hero-grid">
 
-          {/* LEFT SIDE */}
+          {/* =========================================
+              LEFT SIDE
+          ========================================= */}
 
           <div className="hero-copy">
 
@@ -32,11 +44,17 @@ function Hero() {
               understanding how things work underneath.
             </p>
 
+
+            {/* =========================================
+                ACTIONS
+            ========================================= */}
+
             <div className="hero-actions">
 
               <button
                 type="button"
                 className="hero-button primary"
+                onClick={() => scrollToSection("projects")}
               >
                 [ VIEW MY WORK ]
               </button>
@@ -44,6 +62,7 @@ function Hero() {
               <button
                 type="button"
                 className="hero-button secondary"
+                onClick={() => scrollToSection("contact")}
               >
                 [ CONTACT ME ]
               </button>
@@ -53,25 +72,34 @@ function Hero() {
           </div>
 
 
-          {/* RIGHT SIDE */}
+          {/* =========================================
+              RIGHT SIDE — IMAGE
+          ========================================= */}
 
           <div className="hero-image-wrapper">
 
             <div className="hero-image-frame">
+
+              {/* Corner decorations */}
 
               <div className="image-corner top-left" />
               <div className="image-corner top-right" />
               <div className="image-corner bottom-left" />
               <div className="image-corner bottom-right" />
 
-      <img 
-        src= {Pic}
-        alt="My Pic Bro"
-        style={{ width: '100%', maxWidth: '400px', cursor: 'pointer' }}
-      />
-    
+
+              {/* Profile image */}
+
+              <img
+                src={Pic}
+                alt="Arjit"
+                className="hero-image"
+              />
 
             </div>
+
+
+            {/* Image metadata */}
 
             <div className="hero-image-label">
               <span>USER_PROFILE</span>
